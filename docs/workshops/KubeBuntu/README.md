@@ -1,5 +1,5 @@
-# Ubuntu Lab
-Como crear un único Pod en un Clúster de Kubernetes.
+# Ubuntu Lab 
+> Como crear un único Pod en un Clúster de Kubernetes.
 
 ## Introduction
 
@@ -19,12 +19,12 @@ El tiempo estimado que puede llevar este tutorial es menos de 30 minutos
 ## Pasos
 1. [Correr como Pod]()
 2. [Correr como Implementación]()
-3. [Acceder a la consola de Ubuntu del contenedor]()
+3. [Acceder a la consola de Ubuntu]()
 4. [Instalar un paquete de prueba]()
 
 Se puede correr como Pod o como Implementación, debajo se detallan las dos opciones.
 
-1. Correr como Pod:
+### 1. Correr como Pod:
 
   Contenido de archivo `ubuntu-as-pod.yaml` para la creación del Pod.
   ```yaml
@@ -51,7 +51,7 @@ kubectl apply -f ubuntu-as-pod.yaml
 ```bash
 kubectl get pods
 ```
-2. Correr como Implementación
+### 2. Correr como Implementación
 
   Contenido del archivo `ubuntu-deployment.yaml` para la implementación.
   ```yaml
@@ -94,13 +94,14 @@ Listar todo para ver la Implementación y el Pod:
 kubectl get all
 ```
 
-3. Acceder a la Consola del Pod:
+### 3. Acceder a la Consola del Pod:
+
 
   Luego de confirmar que el Pod se está ejecutando, se puede acceder a la consola con el siguiente comando:
 ```bash
 kubectl exec --stdin --tty ubuntu -- /bin/bash
 ```
-4. PRUEBA: Instalar paquetes en un pod de Ubuntu
+### 4. PRUEBA: Instalar paquetes en un pod de Ubuntu
 
   Se puede usar la herramienta estándar de administración de paquetes `apt` de Ubuntu.
 

@@ -1,5 +1,5 @@
 # PHP con MongoDB
-Aplicación PHP con MongoDB en Kubernetes
+> Aplicación PHP con MongoDB en Kubernetes
 
 ## Introducción
 En este tutorial vamos a ver cómo implementar una aplicación PHP tipo **Libro de Visitas** con varios niveles utilizando Kubernetes y Docker, con una instancia única de MongoDB para almacenar las  entradas del libro de visitas y varias instancias de frontend web.
@@ -19,7 +19,7 @@ El tiempo estimado que puede llevar este tutorial es de 30 minutos
 4. [Creando el Servicio Frontend]()
 5. [EXTRA: Escalar el servicio Frontend]()
 
-### Iniciar la base de datos de MongoDB
+### 1. Iniciar la base de datos de MongoDB
 Creación de la implementación de MongoDB. El archivo `mongo-deployment.yaml` especifica un controlador que ejecuta una única réplica de MongoDB.
 
 ```yaml
@@ -69,8 +69,8 @@ Para ver los registros de la implementación del Pod, usar el siguiente comando:
 ```bash
 kubectl logs -f deployment/mongo
 ```
-### Crear el Servicio de MongoDB
-La aplicación de Libro de Visitas debe comunicarse con MongoDB para esribir la información. Se debe aplicar un servicio que defina la política de acceso para el tráfico de la información. Esto se define con el contenido del archivo `mongo-service.yaml` que se detalla a continuación:
+### 2. Crear el Servicio de MongoDB
+La aplicación de Libro de Visitas debe comunicarse con MongoDB para escribir la información. Se debe aplicar un servicio que defina la política de acceso para el tráfico de la información. Esto se define con el contenido del archivo `mongo-service.yaml` que se detalla a continuación:
 
 ```yaml
 apiVersion: v1
@@ -98,7 +98,7 @@ Ver la lista de Servicios y verificar que el Servicio de MongoDB esté corriendo
 kubectl get service
 ```
 
-### Configurar y exponer la interfaz del libro de visitas
+### 3. Configurar y exponer la interfaz del libro de visitas
 El Libro de Visitas tiene una interfaz web que atiende las solicitudes HTTP escritas en PHP. Está configurado para conectarse al Servicio de MongoDB para almacenar entradas del Libro de Visitas.
 
 La implementación del Frontend del Libro de Visitas se detalla en el contenido del archivo `frontend-deployment.yaml` a continuación:
@@ -148,7 +148,7 @@ Ver la lista de Pods y verificar que las tres réplicas de frontend se estén ej
 kubectl get pods -l name=guestbook -l component=frontend
 ```
 
-### Creando el Servicio Frontend
+### 4. Creando el Servicio Frontend
 Para que el Libro de Visitas sea accedido externamente, tenemos que crear un servicio y exponer el puerto externamente. Esto lo podemos hacer aplicando el contenido del archivo `frontend-service.yaml` que se detalla a continuación:
 ```yaml
 apiVersion: v1
@@ -183,7 +183,7 @@ kubectl get nodes -o wide
 **Felicitaciones!** Ahora podemos usar el enlace **http://[Public IP]:[PORT]** para acceder a la aplicación.
 
 
-### EXTRA: Escalar el servicio Frontend
+### 5. EXTRA: Escalar el servicio Frontend
 Puede escalar hacia arriba o hacia abajo según sea necesario porque sus servidores están definidos como un Servicio que usa un controlador de implementación.
 
 Para escalar el número de Pods de Frontend usar el siguiente comando:
@@ -203,7 +203,7 @@ Ver la lista de Pods y verificar el número de Pods que estan corriendo:
 kubectl get pods
 ```
 
-**Cleaning up**
+## Limpieza
 
 Al eliminar las implementaciones y los servicios, también se eliminan los pods en ejecución. Se pueden utilizar etiquetas para eliminar varios recursos con un solo comando.
 

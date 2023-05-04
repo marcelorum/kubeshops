@@ -1,7 +1,7 @@
 # Kubernetes a fondo
-Kubernetes a en lo Profundo, tres elementos importantes
+> Kubernetes en lo Profundo, tres elementos importantes
 ## Introducción
-En este tutorial vamos a ver tres elementos que son muy importantes para ir profundizando en el uso de Kubernetes, más allá de su uso para pruebas de laboratorio, pensando en un uso productivo y el aprovechamiento del potencial de esta herramienta. Vamos a ver cómo configurar namespaces y poder ordernar proyectos, configurar entornos multi-containers y crear colúmenes persistentes para poder retener información de los Pods.
+En este tutorial vamos a ver tres elementos que son muy importantes para ir profundizando en el uso de Kubernetes, más allá de su uso para pruebas de laboratorio, pensando en un uso productivo y el aprovechamiento del potencial de esta herramienta. Vamos a ver cómo configurar namespaces y poder ordernar proyectos, configurar entornos multi-containers y crear volúmenes persistentes para poder retener información de los Pods.
 
 ## Requisitos
 - Una cuenta gratuita de IBM Cloud. [Registrar acá.](https://cloud.ibm.com/registration)
@@ -16,14 +16,15 @@ El tiempo estimado que puede llevar este tutorial es de 30 a 45 minutos con todo
 2. [Cómo crear un Pod multi-container]()
 3. [Cómo crear un Volumen para Almacenamiento persistente]()
 
-### Cómo crear un namespace
-Los namespaces son muy útiles para una mejor gestión de Kubernetes. En este tutorial veremos como crear un nuevo namespace e implementar un pod en él.
+### 1. Cómo crear un namespace
+Los namespaces son muy útiles para una mejor gestión de Kubernetes. En este workshop veremos como crear un nuevo namespace e implementar un pod en él.
 
 En Kubernetes, un namespace se puede usar en entornos donde varios usuarios trabajan en diferentes equipos o proyectos. Con el uso de namespaces es posible dividir los recursos entre los usuarios sin que se produzca una colisión de nombres.
 
 Namespaces son una especie de clúster virtual, parecido a tener varias máquinas virtuales y podemos tener varios namespaces en el mismo Clúster.
 
 Al crear un clúster de Kubernetes, se inician al menos tres espacios de nombres básicos:
+
 - default: se utiliza para implementaciones sin namespace asignado
 - kube-system: se utiliza para todo lo relacionado con el sistema Kubernetes
 - kube-public: reservado solo para uso del sistema
@@ -59,7 +60,7 @@ kubectl get pods --namespace=staging
 ```
 Nuestro Pod NGINX se está ejecutando.
 
-**EXTRA: Cómo configurar el namespace predeterminado**
+#### EXTRA: Cómo configurar el namespace predeterminado
 
 Para usar un namespace específico como predeterminado, para no tener que usar la opción `--amespace=NAMESPACE` en los comandos de implementación, usar el siguiente comando:
 ```bash
@@ -69,7 +70,7 @@ kubectl config set-context --current --namespace=NAMESPACE
 
 ----
 
-### Cómo crear un Pod multi-container
+### 2. Cómo crear un Pod multi-container
 Para crear un Pod multi-container vamos a utilizar el siguiente archivo `multi-container-pod.yml` con el siguietne contenido:
 ```yaml
 apiVersion: v1
@@ -86,7 +87,7 @@ spec:
     image: alpine
     command: ["watch", "wget", "-qO-", "localhost"]
 ```
-Este archivo tiene una definición para 2 contenedores que compartirán la misma red, recursos y volumen.
+Este archivo tiene una definición para 2 contenedores que compartirán la misma red, recursos y volúmen.
 Para crear un Pod de contenedores múltiples usar el siguiente comando:
 ```bash
 kubectl create -f multi-container-pod.yml
@@ -126,9 +127,9 @@ kubectl delete pod multi-container-pod
 
 ----
 
-### Configura un Volume para Almacenamiento persistente con un Pod
+### 3. Configura un Volume para Almacenamiento persistente con un Pod
 
-Vamos a ver cómo configurar un Pod para usar un Volumen como almacenamiento. Los archivos de un contenedor existen mientras el Contenedor exista. Cuando un Contenedor es destruido o reiniciado, los cambios realizados se pierden. Para preservar datos se puede usar un Volume.
+Vamos a ver cómo configurar un Pod para usar un Volúmen como almacenamiento. Los archivos de un contenedor existen mientras el Contenedor exista. Cuando un Contenedor es destruido o reiniciado, los cambios realizados se pierden. Para preservar datos se puede usar un Volume.
 
 Va a ser un Pod que ejecuta un único Contenedor. El Volume es de tipo emptyDir y se va a mantener incluso cuando el Contenedor sea destruido y reiniciado. `volumen.yaml`:
 ```yaml
@@ -194,4 +195,4 @@ kubectl delete pod redis
 ```
 
 ## Resumen / Conclusión
-En este tutorial vimos como ordenar el trabajo en proyectos con el uso de namespaces, aprendimos cómo crear un pod de contenedores múltiples, obtener registros de un contenedor en particular e iniciar sesión en un solo contenedor. Además vimos como crear un almacenamiento local proporcionado por emptyDir, Kubernetes soporta diferentes tipos de soluciones de almacenamiento por red y se encarga de todos los detalles, tal como montar y desmontar los dispositivos en los nodos del clúster.
+En este workshop vimos como ordenar el trabajo en proyectos con el uso de namespaces, aprendimos cómo crear un pod de contenedores múltiples, obtener registros de un contenedor en particular e iniciar sesión en un solo contenedor. Además vimos como crear un almacenamiento local proporcionado por emptyDir, Kubernetes soporta diferentes tipos de soluciones de almacenamiento por red y se encarga de todos los detalles, tal como montar y desmontar los dispositivos en los nodos del clúster.

@@ -1,5 +1,5 @@
 # Monitoreo en Kubernetes
-Crear una instacia de Grafana en Kubernetes y acceder externamente
+> Crear una instacia de Grafana en Kubernetes y acceder externamente
 
 ## Introducción
 
@@ -17,9 +17,9 @@ El tiempo estimado que puede llevar este tutorial es de 30 minutos.
 
 ## Pasos
 
-1. Implementar el servicio de Grafana en Kubernetes
+### 1. Implementar el servicio de Grafana en Kubernetes
 
-  Crear un nuevo proyecto para el despliegue:
+Crear un nuevo proyecto para el despliegue:
 ```bash
 kubectl create namespace monitoring
 ```
@@ -27,14 +27,15 @@ kubectl create namespace monitoring
 ```bash
 kubectl create deployment grafana -n monitoring --image=docker.io/grafana/grafana:latest
 ```
-  Esto implementa Grafana en el cluster y lo inicializa, para ver el estado de la implementación usar:
-  ```bash
+Esto implementa Grafana en el cluster y lo inicializa, para ver el estado de la implementación usar:
+```bash
 kubectl get deployments -n monitoring
 ```
 
-2. Exponer el servicio de Grafana usando NodePort
+### 2. Exponer el servicio de Grafana usando NodePort
 
-  Tenemos que exponer el servicio via NodePort para que podamos acceder externamente, esto se logra con el siguiente comando:
+Tenemos que exponer el servicio via NodePort para que podamos acceder externamente, esto se logra con el siguiente comando:
+
 ```bash
 kubectl -n monitoring expose deployment grafana --type="NodePort" --port 3000
 ```
@@ -46,7 +47,7 @@ grafana   NodePort   172.21.61.27   <none>        3000:32309/TCP   6d19h
 ```
   Este y el siguiente comando pueden ser usados para encontrar el puerto externo que ha sido expuesto internamente, en este caso es el puerto `32309`.
 ```bash
-  kubectl describe service -n monitoring|grep NodePort
+kubectl describe service -n monitoring|grep NodePort
 ```
   Para obtener la IP Pública:
 
@@ -58,31 +59,31 @@ grafana   NodePort   172.21.61.27   <none>        3000:32309/TCP   6d19h
   En este ejemplo, la IP pública es: `169.57.53.40`
 
 
-3. Acceder al panel web de Grafana
+### 3. Acceder al panel web de Grafana
 
   **Felicitaciones!** Ahora podemos usar el enlace **http://[Public IP]:[PORT]** para acceder al servicio de la instacia de Grafana en nuestro Clúster de Kubernetes.
 
   Para este ejemplo, la URL es: `http://169.57.53.40:32309`. Esto abre la página inicial de Grafana que requeire acceso. El usuario y contraseña por defecto es `admin/admin`. En el primer ingreso es necesario cambiar la contraseña.
 
-4. Probar Grafana
+### 4. Probar Grafana
 
   Necesitamos probar la instancia de Grafana para ver si funciona correctamente. La manera más sencilla de hacer esto es usar "theTestData DB" la cual nos da ejemplos de visualización de datos. Para esto, en nuestro panel de Grafana hacer lo siguiente:
 
-  Hacer click en "Create your first data source" y elegir "TestData DB". Click en "Save and test".
+- Hacer click en "Create your first data source" y elegir "TestData DB". Click en "Save and test".
 
-  Hacer click en "Create a new dashboard" para crear un nuevo Panel.
+- Hacer click en "Create a new dashboard" para crear un nuevo Panel.
 
-  Para ver el panel con información, hacer click en "heat map" o "graph".
+- Para ver el panel con información, hacer click en "heat map" o "graph".
 
-  Hay muchas plantillas disponibles para crear paneles con funcionalidades que aplican para una variada cantidad de ambientes. Se pueden encontrar plantillas [acá.](https://grafana.com/grafana/dashboards?search=kubernetes).
+> Hay muchas plantillas disponibles para crear paneles con funcionalidades que aplican para una variada cantidad de ambientes. Se pueden encontrar plantillas [acá.](https://grafana.com/grafana/dashboards?search=kubernetes).
 
-5. Monitorear nuestro Clúster de Kubernetes con nuestra instancia de Grafana
+### 5. Monitorear nuestro Clúster de Kubernetes con nuestra instancia de Grafana
 
-    1. Obtener el ID de [esta plantilla pública](https://grafana.com/grafana/dashboards/8588) haciendo Click en "Copy ID to Clipboard".
-    2. En nuestro panel de Grafana hacer click en Import.
-    3. Ingresar el ID obtenido en el punto 1.
-    4. Hacer click en Load.
-    5. Hacer click en import para importar el panel. Esto nos llevará al panel con las métricas de nuestro Clúster.
+  1. Obtener el ID de [esta plantilla pública](https://grafana.com/grafana/dashboards/8588) haciendo Click en "Copy ID to Clipboard".
+  2. En nuestro panel de Grafana hacer click en Import.
+  3. Ingresar el ID obtenido en el punto 1.
+  4. Hacer click en Load.
+  5. Hacer click en import para importar el panel. Esto nos llevará al panel con las métricas de nuestro Clúster.
 
 
 ## Resumen

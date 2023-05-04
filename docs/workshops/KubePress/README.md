@@ -1,5 +1,5 @@
 # WordPress en Kubernetes
-Desplegar WordPress en Kubernetes en IBM Cloud
+> Desplegar WordPress en Kubernetes en IBM Cloud
 ## Introducción
 
 En este tutorial vamos a ver el potencial de un [Cluster de Kubernetes en IBM Cloud](https://www.ibm.com/cloud/kubernetes-service) y aprender a desplegar uno de los más conocidos frameworks de sitios webs como lo es [WordPress](https://wordpress.org/). Hay que tener en cuenta que el Cluster de Kubernetes de la cuenta gratuita de IBM Cloud expira a los 30 días, tiempo suficiente para poder realizar varias pruebas y testear la tecnología.
@@ -35,7 +35,7 @@ kubectl create secret generic mysql-pass --from-literal=password='tucontrasenias
 ```
 
 ### 2. Crear volumenes persistentes locales
-Para guardar la información y los datos, más allá de la vida útil de cada pod de Kubernete, necesitamos crear un volumen persistente para la base de datos MySQL y la aplicación de WordPress.
+Para guardar la información y los datos, más allá de la vida útil de cada pod de Kubernetes, necesitamos crear un volumen persistente para la base de datos MySQL y la aplicación de WordPress.
 
 Crear el volumen persistente manualmente con el siguiente comando
 ```bash

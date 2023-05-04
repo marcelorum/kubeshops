@@ -1,4 +1,5 @@
-# Monitoreo en Kubernetes: Crear una instacia de Grafana en Kubernetes y acceder externamente
+# Monitoreo en Kubernetes
+Crear una instacia de Grafana en Kubernetes y acceder externamente
 
 ## Introducción
 

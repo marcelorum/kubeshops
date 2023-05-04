@@ -1,5 +1,5 @@
-# Desplegar una aplicación desde una imagen propia de Docker en Kubernetes en IBM Cloud
-
+# Desplegar con Docker
+Desplegar una aplicación desde una imagen propia de Docker en Kubernetes en IBM Cloud
 ## Introducción
 
 En este tutorial vamos a ver el potencial de Docker y Kubernetes usados conjuntamente, aprenderemos a crear y modificar una imágen de Docker, subirla al repositorio en Docker Hub y actualizarla. Luego vamos a usar esa imagen para hacer un despliegue en un Cluster de Kubernetes en IBM Cloud, revisar los pods y escalar la fuerza de trabajo. Por último vamos a exponer la aplicación para poder acceder de manera externa, verificar el funcionamiento y también haremos algunos cambios en el servicio para probar la actualización del mismo y que podamos seguir accediendo a la aplicación.

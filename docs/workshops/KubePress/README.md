@@ -1,5 +1,5 @@
-# Desplegar WordPress en Kubernetes en IBM Cloud
-
+# WordPress en Kubernetes
+Desplegar WordPress en Kubernetes en IBM Cloud
 ## Introducción
 
 En este tutorial vamos a ver el potencial de un [Cluster de Kubernetes en IBM Cloud](https://www.ibm.com/cloud/kubernetes-service) y aprender a desplegar uno de los más conocidos frameworks de sitios webs como lo es [WordPress](https://wordpress.org/). Hay que tener en cuenta que el Cluster de Kubernetes de la cuenta gratuita de IBM Cloud expira a los 30 días, tiempo suficiente para poder realizar varias pruebas y testear la tecnología.

@@ -1,4 +1,5 @@
-# Ubuntu Lab: Como crear un único Pod en un Clúster de Kubernetes.
+# Ubuntu Lab
+Como crear un único Pod en un Clúster de Kubernetes.
 
 ## Introduction
 

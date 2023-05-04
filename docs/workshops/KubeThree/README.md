@@ -1,5 +1,5 @@
-# Kubernetes en lo Profundo, tres elementos importantes
-
+# Kubernetes a fondo
+Kubernetes a en lo Profundo, tres elementos importantes
 ## Introducción
 En este tutorial vamos a ver tres elementos que son muy importantes para ir profundizando en el uso de Kubernetes, más allá de su uso para pruebas de laboratorio, pensando en un uso productivo y el aprovechamiento del potencial de esta herramienta. Vamos a ver cómo configurar namespaces y poder ordernar proyectos, configurar entornos multi-containers y crear colúmenes persistentes para poder retener información de los Pods.
 

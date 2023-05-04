@@ -1,7 +1,7 @@
 # Kubernetes a fondo
 > Kubernetes en lo Profundo, tres elementos importantes
 ## Introducción
-En este tutorial vamos a ver tres elementos que son muy importantes para ir profundizando en el uso de Kubernetes, más allá de su uso para pruebas de laboratorio, pensando en un uso productivo y el aprovechamiento del potencial de esta herramienta. Vamos a ver cómo configurar namespaces y poder ordernar proyectos, configurar entornos multi-containers y crear volúmenes persistentes para poder retener información de los Pods.
+En este workshop vamos a ver tres elementos que son muy importantes para ir profundizando en el uso de Kubernetes, más allá de su uso para pruebas de laboratorio, pensando en un uso productivo y el aprovechamiento del potencial de esta herramienta. Vamos a ver cómo configurar namespaces y poder ordernar proyectos, configurar entornos multi-containers y crear volúmenes persistentes para poder retener información de los Pods.
 
 ## Requisitos
 - Una cuenta gratuita de IBM Cloud. [Registrar acá.](https://cloud.ibm.com/registration)
@@ -9,9 +9,9 @@ En este tutorial vamos a ver tres elementos que son muy importantes para ir prof
 - Tener habilitados los comandos `ibmcloud` y `kubectl`. [Configurar CLI.](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install)
 
 ## Tiempo estimado
-El tiempo estimado que puede llevar este tutorial es de 30 a 45 minutos con todos los requerimientos.
+El tiempo estimado que puede llevar este workshop es de 30 a 45 minutos con todos los requerimientos.
 
-## Este tutorial se divide en tres secciones
+## Este workshop se divide en tres secciones
 1. [Cómo crear un namespace.]()
 2. [Cómo crear un Pod multi-container]()
 3. [Cómo crear un Volumen para Almacenamiento persistente]()

@@ -2,7 +2,7 @@
 > Desplegar WordPress en Kubernetes en IBM Cloud
 ## Introducción
 
-En este tutorial vamos a ver el potencial de un [Cluster de Kubernetes en IBM Cloud](https://www.ibm.com/cloud/kubernetes-service) y aprender a desplegar uno de los más conocidos frameworks de sitios webs como lo es [WordPress](https://wordpress.org/). Hay que tener en cuenta que el Cluster de Kubernetes de la cuenta gratuita de IBM Cloud expira a los 30 días, tiempo suficiente para poder realizar varias pruebas y testear la tecnología.
+En este workshop vamos a ver el potencial de un [Cluster de Kubernetes en IBM Cloud](https://www.ibm.com/cloud/kubernetes-service) y aprender a desplegar uno de los más conocidos frameworks de sitios webs como lo es [WordPress](https://wordpress.org/). Hay que tener en cuenta que el Cluster de Kubernetes de la cuenta gratuita de IBM Cloud expira a los 30 días, tiempo suficiente para poder realizar varias pruebas y testear la tecnología.
 
 Cada componente se ejecuta en un contenedor o grupo de contenedores por separado. WordPress representa una aplicación típica de varios niveles y cada componente tendrá sus propios contenedores. Los contenedores de WordPress serán el nivel de frontend y el contenedor MySQL será el nivel de base de datos / backend para WordPress.
 
@@ -18,7 +18,7 @@ Cada componente se ejecuta en un contenedor o grupo de contenedores por separado
 - Tener habilitados los comandos `ibmcloud` y `kubectl`. [Configurar CLI](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install)
 
 ## Tiempo estimado
-El tiempo estimado que puede llevar este tutorial es menos de 30 minutos
+El tiempo estimado que puede llevar este workshop es menos de 30 minutos
 
 ## Pasos para Desplegar en IBM Cloud
 1. [Configurar Secrets para MySQL](#1-configurar-secret-para-mysql)
@@ -97,4 +97,4 @@ Felicitaciones! Ahora podemos usar el link **http://[Public IP]:[PORT]** para ac
 
 ## Resumen
 
-En este tutorial pudimos ver el potencial de Kuberneter en IBM Cloud y aprendimos a hacer un despliegue de WordPress con una base de datos MySQL, configurar los datos sensibles usando Secrets y generar volumenes persistentes para conservar la información.
+En este workshop pudimos ver el potencial de Kuberneter en IBM Cloud y aprendimos a hacer un despliegue de WordPress con una base de datos MySQL, configurar los datos sensibles usando Secrets y generar volumenes persistentes para conservar la información.

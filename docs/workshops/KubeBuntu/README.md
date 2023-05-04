@@ -5,7 +5,7 @@
 
 Cómo se puede crear un único Pod en un Clúster de Kubernetes en IBM Cloud? Un Pod es un grupo de uno o más contenedores, con recursos de red y almacenamiento compartidos y una especificación de cómo ejecutar los contenedores. Cuando un Pod ejecuta un solo contenedor, es como tener un entorno para un solo contenedor. Kubernetes administra los Pods en lugar de administrar los contenedores directamente.
 
-En este tutorial vamos a ver cómo implementar un Pod de Ubuntu en Kubernetes en IBM Cloud, con el objetivo de tener un Laboratorio para pruebas. Dado que los Pods son desechables, no es recomendable para usar en Producción. Crearemos un contenedor usando la última imagen de Ubuntu en Docker Hub.
+En este workshop vamos a ver cómo implementar un Pod de Ubuntu en Kubernetes en IBM Cloud, con el objetivo de tener un Laboratorio para pruebas. Dado que los Pods son desechables, no es recomendable para usar en Producción. Crearemos un contenedor usando la última imagen de Ubuntu en Docker Hub.
 
 ## Requisitos
 - Una cuenta gratuita de IBM Cloud. Te podes [registrar acá](https://cloud.ibm.com/registration) si no tenes una aun.
@@ -14,7 +14,7 @@ En este tutorial vamos a ver cómo implementar un Pod de Ubuntu en Kubernetes en
 
 
 ## Tiempo estimado
-El tiempo estimado que puede llevar este tutorial es menos de 30 minutos
+El tiempo estimado que puede llevar este workshop es menos de 30 minutos
 
 ## Pasos
 1. [Correr como Pod]()
@@ -116,4 +116,4 @@ root@ubuntu:/# telnet 10.10.6.5   8080
 ```
 
 ## Resumen
-En este tutorial pudimos ver como correr una isntancia de Ubuntu en un solo Pod o en un Pod con una Implementación. Una instacia de Ubuntu es muy útil para usar como Laboratorio de pruebas de paquetes o versiones diferentes de productos o aplicaciones. También sirve como base para luego avanzar en otros aspectos de Kubernetes, como volúmenes persistentes o servicios de red.
+En este workshop pudimos ver como correr una isntancia de Ubuntu en un solo Pod o en un Pod con una Implementación. Una instacia de Ubuntu es muy útil para usar como Laboratorio de pruebas de paquetes o versiones diferentes de productos o aplicaciones. También sirve como base para luego avanzar en otros aspectos de Kubernetes, como volúmenes persistentes o servicios de red.

@@ -2,7 +2,7 @@
 > Aplicación PHP con MongoDB en Kubernetes
 
 ## Introducción
-En este tutorial vamos a ver cómo implementar una aplicación PHP tipo **Libro de Visitas** con varios niveles utilizando Kubernetes y Docker, con una instancia única de MongoDB para almacenar las  entradas del libro de visitas y varias instancias de frontend web.
+En este workshop vamos a ver cómo implementar una aplicación PHP tipo **Libro de Visitas** con varios niveles utilizando Kubernetes y Docker, con una instancia única de MongoDB para almacenar las  entradas del libro de visitas y varias instancias de frontend web.
 
 ## Requisitos
 - Una cuenta gratuita de IBM Cloud. Te podes [registrar acá](https://cloud.ibm.com/registration) si no tenes una aun.
@@ -10,7 +10,7 @@ En este tutorial vamos a ver cómo implementar una aplicación PHP tipo **Libro 
 - Tener habilitados los comandos `ibmcloud` y `kubectl`. [Configurar CLI.](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install)
 
 ## Tiempo estimado
-El tiempo estimado que puede llevar este tutorial es de 30 minutos
+El tiempo estimado que puede llevar este workshop es de 30 minutos
 
 ## Pasos
 1. [Implementar MongoDB.]()
@@ -216,4 +216,4 @@ kubectl delete service -l name=guestbook
 ```
 
 ## Resumen / Conclusión
-En este tutorial vimos como implementar una aplicación web en PHP aplicada desde una imagen de Docker Hub, conectada a un servicio de base de datos MongoDB implementada en este mismo ejercicio y conectada a través de un Servicio creado para tal fin. Además vimos como escalar y reducir el número de Pods de la aplicación Frontend. Por último, limpiamos toda la implementación.
+En este workshop vimos como implementar una aplicación web en PHP aplicada desde una imagen de Docker Hub, conectada a un servicio de base de datos MongoDB implementada en este mismo ejercicio y conectada a través de un Servicio creado para tal fin. Además vimos como escalar y reducir el número de Pods de la aplicación Frontend. Por último, limpiamos toda la implementación.

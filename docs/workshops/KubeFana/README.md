@@ -5,7 +5,7 @@
 
 Grafana es una herramienta de panel de código abierto que se puede utilizar para mostrar métricas de diferentes sistemas. Se puede integrar con una variedad de fuentes de datos como Prometheus, InfluxDB Stackdriver, etc.
 
-En este tutorial vamos a ver cómo configurar un panel de Grafana en un Clúster de Kubernetes en IBM Cloud, usando Prometheus como herramienta de análisis de datos. Los siguientes pasos nos guiarán para configurar una instancia de Grafana en funcionamiento. Además veremos como crear un namespace para nuestro proyecto.
+En este workshop vamos a ver cómo configurar un panel de Grafana en un Clúster de Kubernetes en IBM Cloud, usando Prometheus como herramienta de análisis de datos. Los siguientes pasos nos guiarán para configurar una instancia de Grafana en funcionamiento. Además veremos como crear un namespace para nuestro proyecto.
 
 ## Requisitos
 - Una cuenta gratuita de IBM Cloud. Te podes [registrar acá](https://cloud.ibm.com/registration) si no tenes una aun.
@@ -13,7 +13,7 @@ En este tutorial vamos a ver cómo configurar un panel de Grafana en un Clúster
 - Tener habilitados los comandos `ibmcloud` y `kubectl`. [Configurar CLI.](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install)
 
 ## Tiempo estimado
-El tiempo estimado que puede llevar este tutorial es de 30 minutos.
+El tiempo estimado que puede llevar este workshop es de 30 minutos.
 
 ## Pasos
 

@@ -2,7 +2,7 @@
 > Desplegar una aplicación desde una imagen propia de Docker en Kubernetes en IBM Cloud
 ## Introducción
 
-En este tutorial vamos a ver el potencial de Docker y Kubernetes usados conjuntamente, aprenderemos a crear y modificar una imágen de Docker, subirla al repositorio en Docker Hub y actualizarla. Luego vamos a usar esa imagen para hacer un despliegue en un Cluster de Kubernetes en IBM Cloud, revisar los pods y escalar la fuerza de trabajo. Por último vamos a exponer la aplicación para poder acceder de manera externa, verificar el funcionamiento y también haremos algunos cambios en el servicio para probar la actualización del mismo y que podamos seguir accediendo a la aplicación.
+En este workshop vamos a ver el potencial de Docker y Kubernetes usados conjuntamente, aprenderemos a crear y modificar una imágen de Docker, subirla al repositorio en Docker Hub y actualizarla. Luego vamos a usar esa imagen para hacer un despliegue en un Cluster de Kubernetes en IBM Cloud, revisar los pods y escalar la fuerza de trabajo. Por último vamos a exponer la aplicación para poder acceder de manera externa, verificar el funcionamiento y también haremos algunos cambios en el servicio para probar la actualización del mismo y que podamos seguir accediendo a la aplicación.
 
 ## Requisitos
 - Sistema de gestión de paquetes de Node.js `npm`. [Obtener npm/Node.js!](https://www.npmjs.com/get-npm)
@@ -14,9 +14,9 @@ En este tutorial vamos a ver el potencial de Docker y Kubernetes usados conjunta
 - Tener habilitados los comandos `ibmcloud` y `kubectl`. [Configurar CLI](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install)
 
 ## Tiempo estimado
-El tiempo estimado que puede llevar este tutorial es de 30 a 60 minutos con todos los requerimientos.
+El tiempo estimado que puede llevar este workshop es de 30 a 60 minutos con todos los requerimientos.
 
-## Este tutorial se divide en tres secciones
+## Este workshop se divide en tres secciones
 1. [Node App](#1-node-app)
 2. [Docker](#2-docker)
 3. [Kubernetes](#3-kubernetes)
@@ -134,4 +134,4 @@ kubectl get nodes -o wide
   - Usar el enlace **http://[Public IP]:[PORT]** para verificar.
 
 ## Resumen
-En este tutorial aprendimos a crear una imagen de Docker y subirla al repositorio, luego usar esa imagen para hacer un despliegue en un Cluster de Kubernetes en IBM Cloud. Además vimos el comportamiento al realizar modificaciones en la imagen de Docker y en los Servicios de Kubernetes y también a escalar la aplicación con más réplicas.
+En este workshop aprendimos a crear una imagen de Docker y subirla al repositorio, luego usar esa imagen para hacer un despliegue en un Cluster de Kubernetes en IBM Cloud. Además vimos el comportamiento al realizar modificaciones en la imagen de Docker y en los Servicios de Kubernetes y también a escalar la aplicación con más réplicas.

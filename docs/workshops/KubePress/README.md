@@ -98,11 +98,3 @@ Felicitaciones! Ahora podemos usar el link **http://[Public IP]:[PORT]** para ac
 ## Resumen
 
 En este tutorial pudimos ver el potencial de Kuberneter en IBM Cloud y aprendimos a hacer un despliegue de WordPress con una base de datos MySQL, configurar los datos sensibles usando Secrets y generar volumenes persistentes para conservar la información.
-
-
-## Enlaces Interesantes
-- [WordPress](https://wordpress.org/)
-- [IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/kubernetes-service)
-- [Installing the stand-alone IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
-- [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
-- [Overview of Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)

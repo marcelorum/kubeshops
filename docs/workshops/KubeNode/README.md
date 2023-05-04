@@ -135,10 +135,3 @@ kubectl get nodes -o wide
 
 ## Resumen
 En este tutorial aprendimos a crear una imagen de Docker y subirla al repositorio, luego usar esa imagen para hacer un despliegue en un Cluster de Kubernetes en IBM Cloud. Además vimos el comportamiento al realizar modificaciones en la imagen de Docker y en los Servicios de Kubernetes y también a escalar la aplicación con más réplicas.
-
-## Enlaces Interesantes
-- [IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/kubernetes-service)
-- [Installing the stand-alone IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
-- [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
-- [Docker overview](https://docs.docker.com/get-started/)
-- [Introduction to Node.js](https://nodejs.dev/learn)

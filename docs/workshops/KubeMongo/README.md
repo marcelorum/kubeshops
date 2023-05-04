@@ -217,10 +217,3 @@ kubectl delete service -l name=guestbook
 
 ## Resumen / Conclusión
 En este tutorial vimos como implementar una aplicación web en PHP aplicada desde una imagen de Docker Hub, conectada a un servicio de base de datos MongoDB implementada en este mismo ejercicio y conectada a través de un Servicio creado para tal fin. Además vimos como escalar y reducir el número de Pods de la aplicación Frontend. Por último, limpiamos toda la implementación.
-
-## Enlaces Interesantes
-- [Cómo crear una cuenta gratuita en IBM Cloud](https://cloud.ibm.com/docs/account?topic=account-account-getting-started)
-- [Servicios de Kubernetes en IBM Cloud](https://www.ibm.com/cloud/kubernetes-service)
-- [Cómo instalar el CLI de IBM Cloud](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
-- [Descripción general de kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
-- [Introducción a Docker](https://docs.docker.com/get-started/)

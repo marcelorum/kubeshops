@@ -87,11 +87,3 @@ grafana   NodePort   172.21.61.27   <none>        3000:32309/TCP   6d19h
 
 ## Resumen
 Grafana es una herramienta muy ligera y poderosa para visualización de cargas de trabajo. Se puede integrar con varias herramientas de monitoreo y se adapta en diferentes escenarios. Esto incluye sistemas en la nube, entornos de red y contenedores.
-
-## Enlaces Interesantes
-- [Cómo crear una cuenta gratuita en IBM Cloud](https://cloud.ibm.com/docs/account?topic=account-account-getting-started)
-- [Servicios de Kubernetes en IBM Cloud](https://www.ibm.com/cloud/kubernetes-service)
-- [Cómo instalar el CLI de IBM Cloud](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
-- [Descripción general de kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
-- [Introducción a Docker](https://docs.docker.com/get-started/)
-- [Comunidad de Grafana ](https://grafana.com/grafana/dashboards?search=kubernetes)

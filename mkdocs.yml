@@ -14,10 +14,10 @@ nav:
     - Acerca del workshop: index.md
   - Workshops:
     - Ubuntu Pod: workshops/KubeBuntu/README.md
-    - Graphana: workshops/KubeFana/README.md
+    - Grafana: workshops/KubeFana/README.md
     - PHP/MongoDB: workshops/KubeMongo/README.md
     - Docker Image: workshops/KubeNode/README.md
-    - Wordpress: workshops/KubePress/README.md
+    - WordPress: workshops/KubePress/README.md
     - Kube Extras: workshops/KubeThree/README.md
   - Referencias:
     - Recursos Adicionales: reference/resources.md

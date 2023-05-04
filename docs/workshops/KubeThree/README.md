@@ -195,11 +195,3 @@ kubectl delete pod redis
 
 ## Resumen / Conclusión
 En este tutorial vimos como ordenar el trabajo en proyectos con el uso de namespaces, aprendimos cómo crear un pod de contenedores múltiples, obtener registros de un contenedor en particular e iniciar sesión en un solo contenedor. Además vimos como crear un almacenamiento local proporcionado por emptyDir, Kubernetes soporta diferentes tipos de soluciones de almacenamiento por red y se encarga de todos los detalles, tal como montar y desmontar los dispositivos en los nodos del clúster.
-
-
-## Enlaces Interesantes
-- [Cómo crear una cuenta gratuita en IBM Cloud](https://cloud.ibm.com/docs/account?topic=account-account-getting-started)
-- [Servicios de Kubernetes en IBM Cloud](https://www.ibm.com/cloud/kubernetes-service)
-- [Cómo instalar el CLI de IBM Cloud](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
-- [Descripción general de kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
-- [Introducción a Docker](https://docs.docker.com/get-started/)

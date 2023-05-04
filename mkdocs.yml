@@ -1,3 +1,100 @@
-site_name: Kube Tutos
+# Project Info
+site_name: Kube Workshops
+site_url: https://marcelorum.github.io/kubeshops
+site_author: marcelorum
+
+# Repos
+repo_name: kubeshops
+repo_url: https://github.com/marcelorum/kubeshops
+edit_uri: edit/main/docs
+
+# Navigation
+nav:
+  - Inicio:
+    - Acerca del workshop: index.md
+  - Workshops:
+    - Ubuntu Pod: workshops/KubeBuntu/README.md
+    - Graphana: workshops/KubeFana/README.md
+    - PHP/MongoDB: workshops/KubeMongo/README.md
+    - Docker Image: workshops/KubeNode/README.md
+    - Wordpress: workshops/KubePress/README.md
+    - Kube Extras: workshops/KubeThree/README.md
+  - Referencias:
+    - Recursos Adicionales: reference/resources.md
+    - Ejemplos en Mkdocs: reference/mkdocs.md
+
+## DO NOT CHANGE BELOW THIS LINE
+
+# Copyright
+copyright: Copyright &copy; 2019-23 marcelorum
+
+# Theme
 theme:
   name: material
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  # Choose between specifying a file with "logo"
+  # or using a built-in one with "icon"
+  #logo: assets/bee.png
+  icon:
+    logo: material/library
+  features:
+    #- navigation.tabs
+    - navigation.instant
+    - navigation.expand
+  palette:
+    scheme: default
+    primary: blue
+    accent: blue
+
+# Plugins
+plugins:
+  - search
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/marcelorum
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/marcelonazar/
+  version:
+    provider: mike
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

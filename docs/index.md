@@ -1,12 +1,33 @@
-# Workshop Title 2.0
+# Workshop de Kubernetes
 
-Welcome to our workshop! In this workshop we'll be using foo to accomplish bar. The goals of this workshop are:
+Bienvenidos al Workshop!
 
-* Goal of the lab 1
-* Goal of the lab 2
-* Goal of the lab 3
-* Have fun!
+En estos workshops vamos a usar Kubernetes en IBM Cloud para realizar diferentes tareas como ser:
 
-## About <technology names>
+* Desplegar un POD con Ubuntu
+* Desplegar Graphana para monitoreo
+* Desplegar PHP y MongoDB integrado
+* Desplegar una app en Node
+* Desplegar Wordpress
 
-Write a short description of the technologies that this workshop focuses on. Include a snazzy image, too.
+## Requisitos
+
+> Lo siguiente es necesario para tener un entorno de desarrollo
+
+### 1. IBM Cloud
+
+Asegurarse de contar con un IBM Cloud ID
+
+[Sign up for IBM Cloud! :cloud:](https://cloud.ibm.com/register){: .md-button .md-button--primary }
+
+### 2. GitHub
+
+Ensure you have a GitHub account
+
+[Sign up for GitHub](https://github.com){: .md-button .md-button--primary }
+
+## Autor
+
+Estos workshops fueron realizados por Marcelo Nazar, en el marco del programa de desarrollo de contenido en español para IBM Developer, enfocado en IBM Cloud.
+
+Argentina - Mayo 2019

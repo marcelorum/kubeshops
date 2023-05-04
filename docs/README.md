@@ -1,2 +1,0 @@
-# kubetutos
-Tutoriales de Kubernetes

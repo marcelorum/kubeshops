@@ -28,5 +28,4 @@ Ensure you have a GitHub account
 
 ## Autor
 
-Tuve la oportunidad de crear este Workshop en el marco del Programa de Desarrollo de Contenido en Español, enfocado en IBM Cloud y Kubernetes, y que fuera publicado en el sitio de [IBM Developer](https://developer.ibm.com/) en Septiembre del año 2020
-
+Tuve la oportunidad de crear este Workshop en el marco del Programa de Desarrollo de Contenido en Español, enfocado en IBM Cloud y Kubernetes, y que fuera publicado en el sitio de [IBM Developer](https://developer.ibm.com/) en Septiembre del 2020

@@ -1,10 +1,10 @@
-# mkdocs examples
+# Ejemplos de mkdocs
 
-This page includes a few neat tricks that you can do with `mkdocs`. For a complete list of examples visit the [mkdocs documentation](https://squidfunk.github.io/mkdocs-material-insiders/reference/abbreviations/).
+Esta página incluye algunos buenos trucos que puedes hacer con `mkdocs`. Para obtener una lista completa de ejemplos, visite la [documentación de mkdocs](https://squidfunk.github.io/mkdocs-material/reference/).
 
-## Versioning
+## Versionado
 
-To create versions run these commands:
+Para crear versiones, ejecute estos comandos
 
 ```bash
 mike deploy --update-aliases 1.0 latest
@@ -13,13 +13,13 @@ mike deploy --update-aliases 2.0 latest
 mkdocs serve
 ```
 
-## Code
+## Código
 
 ```python
 print("hello world!")
 ```
 
-## Code with line numbers
+## Código con números de línea
 
 ```python linenums="1"
 def bubble_sort(items):
@@ -29,7 +29,7 @@ def bubble_sort(items):
                 items[j], items[j + 1] = items[j + 1], items[j]
 ```
 
-## Code with highlights
+## Código con destacados
 
 ```python hl_lines="2 3"
 def bubble_sort(items):
@@ -39,43 +39,43 @@ def bubble_sort(items):
                 items[j], items[j + 1] = items[j + 1], items[j]
 ```
 
-## Code with tabs
+## Código con pestañas
 
-=== "Tab Header"
+=== "Encabezado"
 
     ```c
     #include <stdio.h>
 
     int main(void) {
-      printf("Hello world!\n");
-      return 0;
+        printf("Hello world!\n");
+        return 0;
     }
     ```
 
-=== "Another Tab Header"
+=== "Otro encabezado"
 
     ```c++
     #include <iostream>
 
     int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
+        std::cout << "Hello world!" << std::endl;
+        return 0;
     }
     ```
 
-## More tabs
+## Más tabs
 
 === "Windows"
 
-    If on windows download the `Win32.zip` file and install it.
+    Si estás en windows descargar el archivo `Win32.zip` e instalalo.
 
 === "MacOS"
 
-    Run `brew install foo`.
+    Correr `brew install foo`.
 
 === "Linux"
 
-    Run `apt-get install foo`.
+    Correr `apt-get install foo`.
 
 ## Checklists
 
@@ -83,48 +83,48 @@ def bubble_sort(items):
 * [ ] Vestibulum convallis sit amet nisi a tincidunt
     * [x] In hac habitasse platea dictumst
 
-## Add a button
+## Agregar un botón
 
-[Launch the lab](https://developer.ibm.com){: .md-button .md-button--primary }
+[Lanzar el LAB](https://developer.ibm.com){: .md-button .md-button--primary }
 
-[Visit IBM Developer](https://developer.ibm.com){: .md-button }
+[Visitar IBM Developer](https://developer.ibm.com){: .md-button }
 
-[Sign up! :fontawesome-solid-paper-plane:](https://cloud.ibm.com){: .md-button .md-button--primary }
+[Registrarse! :fontawesome-solid-paper-plane:](https://cloud.ibm.com){: .md-button .md-button--primary }
 
 ## Call outs
 
 !!! tip
-    You can use `note`, `abstract`, `info`, `tip`, `success`, `question`
+    Se puede usar `note`, `abstract`, `info`, `tip`, `success`, `question`
     `warning`, `failure`, `danger`, `bug`, `quote` or `example`.
 
 !!! note
-    A note.
+    Una nota.
 
 !!! abstract
-    An abstract.
+    Un abstract.
 
 !!! info
-    Some info.
+    Alguna info.
 
 !!! success
-    A success.
+    Bien.
 
 !!! question
-    A question.
+    Pregunta.
 
 !!! warning
-    A warning.
+    Cuidado.
 
 !!! danger
-    A danger.
+    Peligro.
 
 !!! example
-    A example.
+    Un ejemplo.
 
 !!! bug
-    A bug.
+    Un error.
 
-## Call outs with code
+## Call outs con código
 
 !!! note
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
@@ -143,41 +143,21 @@ def bubble_sort(items):
     sem ut cursus. Nullam sit amet tincidunt ipsum, sit amet elementum turpis.
     Etiam ipsum quam, mattis in purus vitae, lacinia fermentum enim.
 
-## Formatting
+## Formato
 
-In addition to the usual *italics*, and **bold** there is now support for:
+Además del típico *cursiva*, y **negrita** ahora está soportado:
 
-* ==highlighted==
-* ^^underlined^^
-* ~~strike-through~~
+* ==resaltado==
+* ^^subrayado^^
+* ~~tachado~~
 
-## Tables
+## Tablas
 
-| **OS or Application** | **Username** | **Password** |
+| **OS por Aplicación** | **Usuario** | **Password** |
 | - | - | - |
 | Windows VM | `Administrator` | `foo` |
 | Linux VM | `root` | `bar` |
 
 ## Emojis
 
-Yes, these work. :smiley: :+1:
-
-## Embedding social media
-
-Use the "Embed" function and copy/paste the HTML.
-
-<div class="video-wrapper">
-  <iframe width="800" height="450" src="https://www.youtube.com/embed/2Z64G-Wyhqg" frameborder="0" allowfullscreen></iframe>
-</div>
-
-## Images
-
-![image](../assets/bee.png)
-
-Nunc eu odio eleifend, blandit leo a, volutpat sapien
-
-## right align image
-
-![Placeholder](../assets/bee.png){: align=right }
-
-Nunc eu odio eleifend, blandit leo a, volutpat sapien
+Sí! Esto funciona! :smiley: :+1:

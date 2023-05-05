@@ -2,11 +2,12 @@
 site_name: Kube Workshops
 site_url: https://marcelorum.github.io/kubeshops
 site_author: marcelorum
+site_description: Workshop de Kubernetes
 
 # Repos
 repo_name: kubeshops
 repo_url: https://github.com/marcelorum/kubeshops
-edit_uri: edit/main/docs
+#edit_uri: edit/main/docs
 
 # Navigation
 nav:
@@ -21,19 +22,20 @@ nav:
     - Kube Extras: workshops/KubeThree/README.md
   - Referencias:
     - Recursos Adicionales: reference/resources.md
-    - Ejemplos en Mkdocs: reference/mkdocs.md
+    - Ejemplos de Mkdocs: reference/mkdocs.md
 
 ## DO NOT CHANGE BELOW THIS LINE
 
 # Copyright
-copyright: Copyright &copy; 2019 - 2023 marcelorum
+copyright: Content by marcelorum 2020 - 2023
 
 # Theme
 theme:
   name: material
-  font:
-    text: IBM Plex Sans
-    code: IBM Plex Mono
+  language: "es"
+  #font:
+  #  text: IBM Plex Sans
+  #  code: IBM Plex Mono
   # Choose between specifying a file with "logo"
   # or using a built-in one with "icon"
   #logo: assets/bee.png
@@ -45,14 +47,26 @@ theme:
     - navigation.expand
   palette:
     #scheme: default
-    scheme: slate
+    #scheme: slate
     #primary: blue
     primary: indigo
     accent: indigo
+  palette:
+    - media: "(prefers-color-scheme: light)" 
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 # Plugins
 plugins:
-  - search
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
 # Customization
 extra:
@@ -96,7 +110,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

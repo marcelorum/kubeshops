@@ -28,6 +28,5 @@ Ensure you have a GitHub account
 
 ## Autor
 
-Estos workshops fueron realizados por Marcelo Nazar, en el marco del programa de desarrollo de contenido en español para IBM Developer, enfocado en IBM Cloud.
+Tuve la oportunidad de crear este Workshop en el marco del Programa de Desarrollo de Contenido en Español, enfocado en IBM Cloud y Kubernetes, y que fuera publicado en el sitio de [IBM Developer](https://developer.ibm.com/) en Septiembre del año 2020
 
-Argentina - Mayo 2019

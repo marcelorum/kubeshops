@@ -5,10 +5,11 @@
 En este workshop vamos a ver el potencial de Docker y Kubernetes usados conjuntamente, aprenderemos a crear y modificar una imágen de Docker, subirla al repositorio en Docker Hub y actualizarla. Luego vamos a usar esa imagen para hacer un despliegue en un Cluster de Kubernetes en IBM Cloud, revisar los pods y escalar la fuerza de trabajo. Por último vamos a exponer la aplicación para poder acceder de manera externa, verificar el funcionamiento y también haremos algunos cambios en el servicio para probar la actualización del mismo y que podamos seguir accediendo a la aplicación.
 
 ## Requisitos
-- Sistema de gestión de paquetes de Node.js `npm`. [Obtener npm/Node.js!](https://www.npmjs.com/get-npm)
+- Sistema de gestión de paquetes de Node.js `npm`. [Obtener npm/Node.js](https://www.npmjs.com/get-npm)
+> **Nota:** En caso de no querer instalar Node.js, se puede usar el contenido del archivo [KubeNode.zip](KubeNode.zip). Descomprimirlo en el mismo directorio.
 - Docker y comando `docker` [Obtener Docker](https://www.docker.com/get-started)
 - Acceso a Docker Hub (en el caso de querer usar su propia imagen). [Docker Hub](https://hub.docker.com/)
-> **Nota:** Si no se puede/quiere instalar Docker, se puede usar la imagen marcelorum/node-hello-app creada para este fin.
+> **Nota:** En caso de no querer usar una imagen propia, se puede usar la imagen marcelorum/node-hello-app creada para este fin.
 - Una cuenta gratuita de IBM Cloud. Te podes [registrar acá](https://cloud.ibm.com/registration) si no tenes una aun.
 - Un Cluster de Kubernetes gratuito. [Obtener acá](https://cloud.ibm.com/kubernetes/catalog/create)
 - Tener habilitados los comandos `ibmcloud` y `kubectl`. [Configurar CLI](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install)
@@ -22,6 +23,9 @@ El tiempo estimado que puede llevar este workshop es de 30 a 60 minutos con todo
 3. [Kubernetes](#3-kubernetes)
 
 ### 1. Node App
+
+> **Nota:** En caso de usar el contenido del archivo [KubeNode.zip](KubeNode.zip), saltar este paso.
+
 1. En el directorio del proyecto, crear un paquete vacío e inicializar Node.js:
 ```bash
 npm init -y
@@ -34,17 +38,47 @@ npm install express
 
 3. Dejar en el mismo directorio el archivo `index.js`
 
-> **Nota:**  Si no se puede o quiere  instalar Node.js, se puede usar el contenido del archivo KubeNode.zip.
-Descomprimirlo en el mismo directorio.
+    Contenido del archivo `index.js` para la implementación.
+    ```java
+    const express = require('express')
+    const os = require('os')
+
+    const app = express()
+    app.get('/', (req, res) => {
+            res.send(`Hola a todos desde ${os.hostname()}!`)
+    })
+
+    const port = 3000
+    app.listen(port, () => console.log(`listening on port ${port}`))
+    ```
 
 ### 2. Docker
+
+#### Caso 1: Con imagen propia
+
 1. Vamos a usar el archivo `dockerfile` que tiene que estar en el mismo directorio que se está utilizando.
 
-2. Construir la imagen Docker:
+    Contenido del archivo `dockerfile` para la implementación.
+    ```bash
+    FROM node:13-alpine
 
-  ```bash
-  docker build -t <dockeruser>/node-hello-app .
-  ```
+    WORKDIR /app
+
+    COPY package.json ./
+
+    RUN npm install --production
+
+    COPY . .
+
+    EXPOSE 3000
+
+    CMD node index.js
+    ```
+
+2. Construir la imagen Docker:
+```bash
+docker build -t <dockeruser>/node-hello-app .
+```
 
 3. Correr el contenedor localmente para probar:
 ```bash
@@ -56,16 +90,44 @@ docker run --rm -d -p 3000:3000 <dockeruser>/node-hello-app
 docker ps
 ```
 
-  > **Nota:** Se puede revisar en http://localhost:3000
+    > **Nota:** Se puede revisar en http://localhost:3000
 
 5. Terminar las tareas de contenedor:
 ```bash
 docker stop <CONTAINER_ID>
+docker stop $(docker ps -a -q)
 ```
 
 6. Subir la imagen al repositorio en Docker Hub:
 ```bash
 docker push <dockeruser>/node-hello-app
+```
+
+#### Caso 2: Con otra imagen
+
+1. Vamos a usar la imagen `marcelorum/node-hello-app` creada para este fin.
+
+    Traer la imágen del registro:
+    ```bash
+    docker pull marcelorum/node-hello-app
+    ```
+
+2. Correr el contenedor localmente para probar:
+```bash
+docker run --rm -d -p 3000:3000 marcelorum/node-hello-app
+```
+
+3. Revisar los contenedores que están corriendo:
+```bash
+docker ps
+```
+
+    > **Nota:** Se puede revisar en http://localhost:3000
+
+4. Terminar las tareas de contenedor:
+```bash
+docker stop <CONTAINER_ID>
+docker stop $(docker ps -a -q)
 ```
 
 #### EXTRA: Prueba de actualización:
@@ -85,15 +147,18 @@ kubectl get nodes
 ```bash
 kubectl create deployment --image <dockeruser>/node-hello-app node-app
 ```
+```bash
+kubectl create deployment --image marcelorum/node-hello-app node-app
+```
 
-  > **Nota:** Si no se puede/quiere instalar Docker, se puede usar la imagen marcelorum/node-hello-app creada para este fin.
+    > **Nota:** En caso de usar la imagen ya creada marcelorum/node-hello-app.
 
 3. Exponer el despliegue como una replica NodePort:
 ```bash
 kubectl expose deployment node-app --type=NodePort --port 3000
 ```
 
-4. Revisar el servicio creado y el peurto asignado:
+4. Revisar el servicio creado y el puerto asignado:
 ```bash
 kubectl get services
 ```
@@ -123,7 +188,7 @@ kubectl get nodes -o wide
   ```bash
   kubectl edit service node-app
   ```
-  > **Nota:** Se sale del editor escribiendo :wq
+  > **Nota:** Se sale del editor con :wq
 
   - Reemplazar el puerto: `port: 3000` por `port: 80`
   - Reemplazar el tipo: `type: NodePort` por `type: LoadBalancer`

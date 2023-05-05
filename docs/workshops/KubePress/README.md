@@ -37,12 +37,188 @@ kubectl create secret generic mysql-pass --from-literal=password='tucontrasenias
 ### 2. Crear volumenes persistentes locales
 Para guardar la información y los datos, más allá de la vida útil de cada pod de Kubernetes, necesitamos crear un volumen persistente para la base de datos MySQL y la aplicación de WordPress.
 
-Crear el volumen persistente manualmente con el siguiente comando
+Contenido del archivo `local-volumes.yaml` para la creación del volume.
+```yaml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+name: local-volume-1
+labels:
+    type: local
+spec:
+capacity:
+    storage: 20Gi
+accessModes:
+    - ReadWriteOnce
+hostPath:
+    path: /tmp/data/lv-1
+persistentVolumeReclaimPolicy: Recycle
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+name: local-volume-2
+labels:
+    type: local
+spec:
+capacity:
+    storage: 20Gi
+accessModes:
+    - ReadWriteOnce
+hostPath:
+    path: /tmp/data/lv-2
+persistentVolumeReclaimPolicy: Recycle
+```
+
+Crear el volumen persistente con el siguiente comando
 ```bash
 kubectl create -f local-volumes.yaml
 ```
 ### 3. Crear los servicios de despliegue para WordPress y MySQL
-Instalar el volumen persistente en el almacenamiento local del cluster, usar los secrets y crear los servicios para MySQL y WordPress.
+Para instalar el volumen persistente en el almacenamiento local del cluster, usar los secrets y crear los servicios para MySQL y WordPress, vamos a usar los archivos de configuración `mysql-deployment.yaml` y `wordpress-deployment.yaml`
+
+Contenido del archivo `mysql-deployment.yaml` para el servicio de mysql.
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+name: wordpress-mysql
+labels:
+    app: wordpress
+spec:
+ports:
+    - port: 3306
+selector:
+    app: wordpress
+    tier: mysql
+clusterIP: None
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+name: mysql-pv-claim
+labels:
+    app: wordpress
+spec:
+accessModes:
+    - ReadWriteOnce
+resources:
+    requests:
+    storage: 20Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: wordpress-mysql
+labels:
+    app: wordpress
+spec:
+selector:
+    matchLabels:
+    app: wordpress
+    tier: mysql
+strategy:
+    type: Recreate
+template:
+    metadata:
+    labels:
+        app: wordpress
+        tier: mysql
+    spec:
+    containers:
+    - image: mysql:5.6
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+        valueFrom:
+            secretKeyRef:
+            name: mysql-pass
+            key: password
+        ports:
+        - containerPort: 3306
+        name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+        mountPath: /var/lib/mysql
+    volumes:
+    - name: mysql-persistent-storage
+        persistentVolumeClaim:
+        claimName: mysql-pv-claim
+```
+
+Contenido del archivo `wordpress-deployment.yaml` para el servicio de WordPress.
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+name: wordpress
+labels:
+    app: wordpress
+spec:
+ports:
+    - port: 80
+selector:
+    app: wordpress
+    tier: frontend
+type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+name: wp-pv-claim
+labels:
+    app: wordpress
+spec:
+accessModes:
+    - ReadWriteOnce
+resources:
+    requests:
+    storage: 20Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: wordpress
+labels:
+    app: wordpress
+spec:
+selector:
+    matchLabels:
+    app: wordpress
+    tier: frontend
+strategy:
+    type: Recreate
+template:
+    metadata:
+    labels:
+        app: wordpress
+        tier: frontend
+    spec:
+    containers:
+    - image: wordpress:4.8-apache
+        name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+        value: wordpress-mysql
+        - name: WORDPRESS_DB_PASSWORD
+        valueFrom:
+            secretKeyRef:
+            name: mysql-pass
+            key: password
+        ports:
+        - containerPort: 80
+        name: wordpress
+        volumeMounts:
+        - name: wordpress-persistent-storage
+        mountPath: /var/www/html
+    volumes:
+    - name: wordpress-persistent-storage
+        persistentVolumeClaim:
+        claimName: wp-pv-claim
+```
+
+Crear los servicios para MySQL y WordPress.
 
 ```bash
 kubectl create -f mysql-deployment.yaml
@@ -91,7 +267,7 @@ NAME        TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
 wordpress   LoadBalancer   172.21.160.82   <pending>     80:30180/TCP   23s
 ```
 
-Felicitaciones! Ahora podemos usar el link **http://[Public IP]:[PORT]** para acceder al sitio de WordPress.
+**Felicitaciones!** Ahora podemos usar el link **http://[Public IP]:[PORT]** para acceder al sitio de WordPress.
 
 > **Nota:** Para este ejemplo, el enlace quedaría de esta forma http://169.57.43.40:30180
 

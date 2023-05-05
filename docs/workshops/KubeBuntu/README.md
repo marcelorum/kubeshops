@@ -101,6 +101,7 @@ kubectl get all
 ```bash
 kubectl exec --stdin --tty ubuntu -- /bin/bash
 ```
+
 ### 4. PRUEBA: Instalar paquetes en un pod de Ubuntu
 
   Se puede usar la herramienta estándar de administración de paquetes `apt` de Ubuntu.

@@ -20,7 +20,6 @@ spec:
       containers:
       - name: guestbook
         image: marcelorum/gb-frontend:v5
-        # image: gcr.io/google-samples/gb-frontend:v5
         resources:
           requests:
             cpu: 100m

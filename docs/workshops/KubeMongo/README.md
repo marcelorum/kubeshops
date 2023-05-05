@@ -126,7 +126,6 @@ spec:
       containers:
       - name: guestbook
         image: marcelorum/gb-frontend:v5
-        # image: gcr.io/google-samples/gb-frontend:v5
         resources:
           requests:
             cpu: 100m
@@ -137,7 +136,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-> **Nota:** Se puede utilizar la imagen en Docker que he creado para este fin o el ejemplo desde gcr.io/google-samples/gb-frontend:v5
+> **Nota:** Si la imágen da error, probar con esta otra gcr.io/google-samples/gb-frontend:v5
 
 Aplicar la implementación de frontend con el archivo frontend-deployment.yaml:
 ```bash

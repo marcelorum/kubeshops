@@ -26,7 +26,7 @@ nav:
 ## DO NOT CHANGE BELOW THIS LINE
 
 # Copyright
-copyright: Copyright &copy; 2019-23 marcelorum
+copyright: Copyright &copy; 2019 - 2023 marcelorum
 
 # Theme
 theme:
@@ -44,9 +44,11 @@ theme:
     - navigation.instant
     - navigation.expand
   palette:
-    scheme: default
-    primary: blue
-    accent: blue
+    #scheme: default
+    scheme: slate
+    #primary: blue
+    primary: indigo
+    accent: indigo
 
 # Plugins
 plugins:

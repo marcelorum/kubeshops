@@ -117,4 +117,4 @@ root@ubuntu:/# telnet 10.10.6.5   8080
 ```
 
 ## Resumen
-En este workshop pudimos ver como correr una isntancia de Ubuntu en un solo Pod o en un Pod con una Implementación. Una instacia de Ubuntu es muy útil para usar como Laboratorio de pruebas de paquetes o versiones diferentes de productos o aplicaciones. También sirve como base para luego avanzar en otros aspectos de Kubernetes, como volúmenes persistentes o servicios de red.
+En este workshop pudimos ver como correr una instancia de Ubuntu en un solo Pod o en un Pod con una Implementación. Una instacia de Ubuntu es muy útil para usar como Laboratorio de pruebas de paquetes o versiones diferentes de productos o aplicaciones. También sirve como base para luego avanzar en otros aspectos de Kubernetes, como volúmenes persistentes o servicios de red.
